@@ -1,0 +1,16 @@
+.text {
+    display: grid;
+    grid-template-areas: "n p b";
+    max-width: 300px;
+    justify-content: space-between;
+    margin: 0 15px;
+}
+.name{
+    grid-area: n;
+}
+.priority{
+    grid-area: p;
+}
+.button{
+    grid-area: b;
+}
