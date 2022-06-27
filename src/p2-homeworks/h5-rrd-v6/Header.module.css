@@ -1,0 +1,43 @@
+.container {
+    margin-top: 10px;
+    width: 100px;
+    height: 30px;
+    position: relative;
+    left: -5px;
+    transition: .7s ease;
+    padding-right: 8px;
+}
+
+.container:hover {
+    width: 420px;
+}
+
+.links {
+    display: flex;
+    gap: 15px;
+    float: right;
+    position: relative;
+}
+
+.links button a {
+    color: white;
+    text-decoration: none;
+}
+
+.link {
+    width: 90px;
+    height: 25px;
+    text-align: center;
+    background: #7e97d3;
+    color: #000000;
+    border-radius: 10px 0;
+}
+
+.link a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.link a.active {
+    color: white;
+}
