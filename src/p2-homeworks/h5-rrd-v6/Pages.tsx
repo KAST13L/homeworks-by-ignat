@@ -11,7 +11,7 @@ export const PATH = {
     JUNIOR_PLUS: '/junior-plus'
 }
 
-function Pages() {
+export function Pages() {
     return (
         <div>
             <Routes>
@@ -25,4 +25,3 @@ function Pages() {
     )
 }
 
-export default Pages
