@@ -14,6 +14,7 @@ beforeEach(() => {
     ]
 })
 
+/*
 test('sort name up', () => {
     const newState = homeWorkReducer(initialState, {type: 'sort', payload: 'up'})
 
@@ -30,3 +31,4 @@ test('check age 18', () => {
 
 
 })
+*/

@@ -1,10 +1,14 @@
 import React, {useState} from 'react'
-import {homeWorkReducer} from './bll/homeWorkReducer'
+import {CheckAdultUsersAC, homeWorkReducer, SortDownUsersAC, SortUpUsersAC} from './bll/homeWorkReducer'
 import SuperButton from '../h4/common/c2-SuperButton/SuperButton'
 
-// export type UserType =
+export type UserType = {
+    _id: number
+    name: string
+    age: number
+}
 
-const initialPeople = [
+const initialPeople: Array<UserType> = [
     {_id: 0, name: 'Кот', age: 3},
     {_id: 1, name: 'Александр', age: 66},
     {_id: 2, name: 'Коля', age: 16},
@@ -14,29 +18,40 @@ const initialPeople = [
 ]
 
 function HW8() {
-    const [people, setPeople] = useState<any>(initialPeople) // need to fix any
+    const [people, setPeople] = useState<Array<UserType>>(initialPeople) // need to fix any
 
     // need to fix any
-    const finalPeople = people.map((p: any) => (
-        <div key={p._id}>
-            some name, age
-        </div>
-    ))
 
-    const sortUp = () => setPeople(homeWorkReducer(initialPeople, {type: 'sort', payload: 'up'}))
+    const sortUp = () => setPeople(homeWorkReducer(initialPeople, SortUpUsersAC()))
+    const sortDown = () => setPeople(homeWorkReducer(initialPeople, SortDownUsersAC()))
+    const checkAdult = () => setPeople(homeWorkReducer(initialPeople, CheckAdultUsersAC()))
+
+
+    const finalPeople = people.map((p) => {
+        return <div style={{display: 'flex', width: '200px', justifyContent: 'space-between'}} key={p._id}>
+            <span>
+                {p.name}
+            </span>
+                <span>
+                {p.age}
+            </span>
+            </div>
+    })
+
 
     return (
         <div>
             <hr/>
             homeworks 8
 
-            {/*should work (должно работать)*/}
-            {finalPeople}
-
-            <div><SuperButton onClick={sortUp}>sort up</SuperButton></div>
-            <div>sort down</div>
-            check 18
-
+            <div style={{padding: '15px'}}>
+                {finalPeople}
+            </div>
+            <div style={{padding: '15px'}}>
+                <span><SuperButton onClick={sortUp}>sort up</SuperButton></span>
+                <span><SuperButton onClick={sortDown}>sort down</SuperButton></span>
+                <span><SuperButton onClick={checkAdult}>check 18</SuperButton></span>
+            </div>
             <hr/>
             {/*для личного творчества, могу проверить*/}
             {/*<AlternativePeople/>*/}
